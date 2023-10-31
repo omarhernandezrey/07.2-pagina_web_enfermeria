@@ -3,6 +3,20 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+const menucheck = document.getElementById('menu-check');
+const desktopMenu = document.querySelector('.desktop-menu');
+
+menucheck.addEventListener('click', toggleMobileMenu);
+
+function toggleMobileMenu() {
+    desktopMenu.classList.toggle('inactive');
+}
+
+// Agregamos un evento de escucha al cargar la página para asegurarnos de que el menú esté oculto inicialmente
+window.addEventListener('load', function () {
+    desktopMenu.classList.add('inactive');
+});
+
 
 (function($) {
 
@@ -34,32 +48,6 @@
 
 	// Nav.
 
-		// Title Bar.
-			$(
-				'<div id="titleBar">' +
-					'<a href="#navPanel" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
 
-		// Panel.
-			$(
-				'<div id="navPanel">' +
-					'<nav>' +
-						$('#nav').navList() +
-					'</nav>' +
-				'</div>'
-			)
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'navPanel-visible'
-				});
 
 })(jQuery);
